@@ -1,6 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#efeae1"/>
-  <rect x="7" y="8" width="13" height="3" fill="#171715"/>
-  <rect x="12" y="14.5" width="13" height="3" fill="#e23b2a"/>
-  <rect x="7" y="21" width="9" height="3" fill="#171715"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 30" fill="none">
+  <style>
+    path {
+      fill: #111111;
+    }
+    @media (prefers-color-scheme: dark) {
+      path {
+        fill: #ffffff;
+      }
+    }
+  </style>
+  <path
+    d="M17 4.52661C12.5392 -3.00174 0 -0.803397 0 8.62829C0 14.8366 7.3865 21.5067 15.8151 29.5283C16.1449 29.8433 16.5733 30 17 30C17.4267 30 17.8551 29.8433 18.1849 29.5283C26.6458 21.4767 34 14.8383 34 8.62829C34 -0.835064 21.4268 -2.94507 17 4.52661Z"
+  />
 </svg>
