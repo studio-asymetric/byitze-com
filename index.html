@@ -21,8 +21,10 @@
   <meta name="twitter:image" content="https://byitze.com/images/dalibor-itze.webp">
   <meta name="theme-color" content="#efeae1">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/Delight-Black.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/Geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/lenis.css">
+  <link rel="stylesheet" href="/css/site.css?v=18">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,6 +41,7 @@
         "sameAs": [
           "https://www.instagram.com/byitze/",
           "https://www.linkedin.com/in/itze/",
+          "https://github.com/itze",
           "https://www.youtube.com/@daliboritze888",
           "https://asymetric.studio/"
         ]
@@ -75,67 +78,27 @@
   </header>
 
   <main>
-    <section class="intro" id="about">
-      <div class="intro-copy">
-        <p class="kicker">Cofounder of Studio Asymetric</p>
+    <section class="hero" id="about">
+      <p class="kicker">Cofounder of Studio Asymetric</p>
+      <div class="hero-stage">
         <h1>Dalibor Itze</h1>
-        <p class="lede">Design, technology, and craft are just mediums. What defines the work is intent.</p>
-        <div class="intro-cta">
-          <p class="intro-cta-text">This page is a short introduction. For the actual work, go to Studio Asymetric.</p>
-          <a class="btn btn-primary" href="https://asymetric.studio/work/">Studio Asymetric</a>
-        </div>
+        <div class="stickers" id="stickers"></div>
       </div>
-      <figure class="portrait">
-        <img src="/images/dalibor-itze.webp" alt="Dalibor Itze" width="750" height="1200">
-      </figure>
+      <p class="lede">There are only two reasons you're here. You want a designer, or you want me. Take that <em class="lust">lust</em> for good design to Studio Asymetric. I'm right below.</p>
+      <div class="intro-cta">
+        <a class="btn btn-primary" href="https://asymetric.studio/work/">Studio Asymetric</a>
+      </div>
     </section>
 
-    <section class="block" id="contact">
-      <div class="block-head">
-        <h2>Contact</h2>
-        <p>The short way to reach me.</p>
-      </div>
-      <ul class="tree">
-        <li>
-          <a href="mailto:dalibor.itze@gmail.com">
-            <span class="tree-label">Gmail</span>
-            <span class="tree-value">dalibor.itze@gmail.com</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/byitze/">
-            <span class="tree-label">Instagram</span>
-            <span class="tree-value">@byitze</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/itze/">
-            <span class="tree-label">LinkedIn</span>
-            <span class="tree-value">in/itze</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.youtube.com/@daliboritze888">
-            <span class="tree-label">YouTube</span>
-            <span class="tree-value">@daliboritze888</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://asymetric.studio/">
-            <span class="tree-label">Studio</span>
-            <span class="tree-value">asymetric.studio</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <section class="block" id="work">
+    <section class="block work-block" id="work">
       <div class="block-head">
         <h2>Featured projects</h2>
-        <p>Selected work from Studio Asymetric. Each card opens on the studio site.</p>
+        <p>It keeps moving. Drag to look closer. Every card opens on the studio site.</p>
       </div>
-      <div id="projects" class="projects" aria-live="polite">
-        <p class="status">Loading projects.</p>
+      <div class="reel" id="reel">
+        <div id="projects" class="reel-track">
+          <p class="status">Loading projects.</p>
+        </div>
       </div>
       <noscript>
         <p class="status"><a href="https://asymetric.studio/work/">See the work on asymetric.studio</a></p>
@@ -145,6 +108,46 @@
         <span class="all-work-go">asymetric.studio</span>
       </a>
     </section>
+
+    <section class="block" id="contact">
+      <div class="block-head">
+        <h2>Contact</h2>
+        <p>Each card is a way to reach me.</p>
+      </div>
+      <div class="contact-grid">
+        <a class="reel-card contact-card" href="mailto:dalibor.itze@gmail.com">
+          <div class="reel-frame contact-face" style="--rest:-2.5deg"><span>Gmail</span></div>
+          <p class="reel-type">Email</p>
+          <h3 class="reel-title">dalibor.itze@gmail.com</h3>
+        </a>
+        <a class="reel-card contact-card" href="https://www.instagram.com/byitze/">
+          <div class="reel-frame contact-face" style="--rest:2deg"><span>Instagram</span></div>
+          <p class="reel-type">Social</p>
+          <h3 class="reel-title">@byitze</h3>
+        </a>
+        <a class="reel-card contact-card" href="https://www.linkedin.com/in/itze/">
+          <div class="reel-frame contact-face" style="--rest:-1.5deg"><span>LinkedIn</span></div>
+          <p class="reel-type">Work</p>
+          <h3 class="reel-title">in/itze</h3>
+        </a>
+        <a class="reel-card contact-card" href="https://github.com/itze">
+          <div class="reel-frame contact-face" style="--rest:2.5deg"><span>GitHub</span></div>
+          <p class="reel-type">Code</p>
+          <h3 class="reel-title">itze</h3>
+        </a>
+        <a class="reel-card contact-card" href="https://www.youtube.com/@daliboritze888">
+          <div class="reel-frame contact-face" style="--rest:-2deg"><span>YouTube</span></div>
+          <p class="reel-type">Video</p>
+          <h3 class="reel-title">@daliboritze888</h3>
+        </a>
+        <a class="reel-card contact-card contact-ink" href="https://asymetric.studio/">
+          <div class="reel-frame contact-face" style="--rest:1.5deg"><span>Studio</span></div>
+          <p class="reel-type">Work</p>
+          <h3 class="reel-title">asymetric.studio</h3>
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -152,6 +155,7 @@
     <p>© <span id="year">2026</span></p>
   </footer>
 
-  <script src="/js/site.js"></script>
+  <script src="/js/lenis.min.js"></script>
+  <script src="/js/site.js?v=11"></script>
 </body>
 </html>

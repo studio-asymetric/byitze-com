@@ -40,4 +40,4 @@ Featured projects are fetched in the browser from `https://cms.asymetric.studio`
 
 ## License
 
-Website code is [MIT](LICENSE). Geist font files are OFL (see [Geist](https://vercel.com/font)).
+Website code is [MIT](LICENSE). Display type is Delight Black by Rajesh Rajput. Interface type is Geist (OFL).
