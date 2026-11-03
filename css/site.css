@@ -186,7 +186,7 @@ h2,
   display: grid;
   place-items: center;
   margin: 10px 0 8px;
-  padding: 42px 0 28px;
+  padding: clamp(48px, 8vw, 56px) 0 clamp(32px, 6vw, 40px);
 }
 
 h1 {
@@ -202,7 +202,7 @@ h1 {
 
 .stickers {
   position: absolute;
-  inset: -6% 0 -10%;
+  inset: -14% -2% -16%;
   z-index: 2;
   pointer-events: none;
 }
@@ -500,6 +500,16 @@ h1 {
 
 .footer p { margin: 0; }
 
+@media (max-width: 900px) {
+  .hero-stage {
+    padding: clamp(56px, 14vw, 72px) 0 clamp(40px, 10vw, 52px);
+  }
+
+  .stickers {
+    inset: -20% -6% -22%;
+  }
+}
+
 @media (max-width: 800px) {
   .block-head { grid-template-columns: 1fr; }
   .block-head p { justify-self: start; }
@@ -513,6 +523,8 @@ h1 {
   .brand { padding: 8px; }
   .nav-links a { padding: 8px 7px; }
   .nav-studio { padding: 8px 10px; }
+  .hero-stage { padding: 64px 0 48px; }
+  .stickers { inset: -26% -10% -28%; }
   .footer { flex-direction: column; }
 }
 

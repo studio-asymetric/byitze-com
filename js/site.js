@@ -10,12 +10,40 @@ const track = document.getElementById("projects");
 const stage = document.querySelector(".hero-stage");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const spots = [
-  { x: "0%", y: "-4%", rest: "-8deg" },
-  { x: "76%", y: "-12%", rest: "8deg" },
-  { x: "78%", y: "34%", rest: "-5deg" },
-  { x: "8%", y: "38%", rest: "6deg" },
-];
+function stickerSpots() {
+  const w = window.innerWidth;
+  if (w <= 560) {
+    return [
+      { x: "-8%", y: "-32%", rest: "-8deg" },
+      { x: "86%", y: "-34%", rest: "8deg" },
+      { x: "88%", y: "58%", rest: "-5deg" },
+      { x: "-6%", y: "56%", rest: "6deg" },
+    ];
+  }
+  if (w <= 900) {
+    return [
+      { x: "-6%", y: "-24%", rest: "-8deg" },
+      { x: "80%", y: "-26%", rest: "8deg" },
+      { x: "82%", y: "48%", rest: "-5deg" },
+      { x: "-2%", y: "46%", rest: "6deg" },
+    ];
+  }
+  return [
+    { x: "0%", y: "-18%", rest: "-8deg" },
+    { x: "76%", y: "-20%", rest: "8deg" },
+    { x: "78%", y: "44%", rest: "-5deg" },
+    { x: "4%", y: "42%", rest: "6deg" },
+  ];
+}
+
+function placeSticker(node, index) {
+  const spots = stickerSpots();
+  const spot = spots[index % spots.length];
+  node.style.setProperty("--x", spot.x);
+  node.style.setProperty("--y", spot.y);
+  node.style.setProperty("--rest", spot.rest);
+  node.style.setProperty("--i", String(index));
+}
 
 function decode(value) {
   const el = document.createElement("textarea");
@@ -78,12 +106,9 @@ function picture(url, alt) {
   return img;
 }
 
-function placeSticker(node, index) {
-  const spot = spots[index % spots.length];
-  node.style.setProperty("--x", spot.x);
-  node.style.setProperty("--y", spot.y);
-  node.style.setProperty("--rest", spot.rest);
-  node.style.setProperty("--i", String(index));
+function relayoutStickers() {
+  if (!stickers) return;
+  stickers.querySelectorAll(".sticker").forEach((node, index) => placeSticker(node, index));
 }
 
 function renderStickers(projects, images) {
@@ -494,5 +519,8 @@ function mountLenis() {
 bindStickers();
 bindStickerDrag();
 mountLenis();
-window.addEventListener("resize", mountLenis);
+window.addEventListener("resize", () => {
+  relayoutStickers();
+  mountLenis();
+});
 load();
