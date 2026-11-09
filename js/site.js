@@ -55,6 +55,15 @@ function isFeatured(value) {
   return value === true || value === 1 || value === "1";
 }
 
+function hasItzeAuthor(post) {
+  const acf = post && post.acf ? post.acf : {};
+  const text = [acf.authors, acf.author, post && post.author]
+    .map((value) => String(value || ""))
+    .join(" ")
+    .toLowerCase();
+  return text.includes("itze");
+}
+
 function stamp(project) {
   const raw = project.acf && project.acf.deadline;
   let iso = project.date || "";
@@ -461,7 +470,7 @@ async function load() {
     if (!response.ok) throw new Error(String(response.status));
     const posts = await response.json();
     const featured = (Array.isArray(posts) ? posts : [])
-      .filter((post) => post && post.acf && isFeatured(post.acf.featured))
+      .filter((post) => post && post.acf && isFeatured(post.acf.featured) && hasItzeAuthor(post))
       .sort((a, b) => stamp(b) - stamp(a));
 
     const ids = [...new Set(
