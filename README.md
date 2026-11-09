@@ -23,7 +23,10 @@ Coolify builds the Dockerfile; nginx serves the site on port **80**. No database
 1. In Coolify (`ops.asymetric.studio`), add an application from the GitHub App: **`studio-asymetric/byitze-com`**, branch **`main`**.
 2. Build pack: **Dockerfile**. Port: **80**.
 3. Domains: **`byitze.com`**, **`www.byitze.com`**. Enable HTTPS (Let’s Encrypt).
-4. Turn on **Auto Deploy** on push to `main`.
+4. Turn on **Force HTTPS** / redirect HTTP → HTTPS in Coolify (301). The container also 301s `www` and HTTP (`X-Forwarded-Proto`) to `https://byitze.com/`.
+5. Turn on **Auto Deploy** on push to `main`.
+
+Old CMS paths are not this site anymore: `/contact` 301s to the homepage contact block, `/work/…` 301s to `https://asymetric.studio/work/…`, and unknown URLs return a real **404**. The sitemap lists only `https://byitze.com/`.
 
 ### DNS
 
